@@ -1,0 +1,16 @@
+[
+  {
+    "photo": "https://image-cdn.essentiallysports.com/wp-content/uploads/Arnold-Schwarzenegger-FI-2-640x576.jpeg",
+    "id": "1",
+    "alt": "Наш тренер",
+    "name": "Денис",
+    "description": "Маю дуже великий досвід"
+  },
+  {
+    "photo": "https://image-cdn.essentiallysports.com/wp-content/uploads/Arnold-Schwarzenegger-FI-2-640x576.jpeg",
+    "id": "2",
+    "alt": "Наш тренер",
+    "name": "Олександр",
+    "description": "Маю теж дуже великий досвід"
+  }
+]
