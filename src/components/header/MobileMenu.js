@@ -1,7 +1,8 @@
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { SlSocialInstagram } from 'react-icons/sl';
-import { Link, InstaIcon, MobileMenu } from './Header.styled';
+import { Link, InstaIcon, MobileMenu, MobileWrap } from './Header.styled';
 import { useState } from 'react';
+import { LogoImg } from 'components/common/Common.styled';
 import { Breakpoint } from 'react-socks';
 
 export default function MobileMenuComponent() {
@@ -13,7 +14,10 @@ export default function MobileMenuComponent() {
 
   return (
     <MobileMenu>
-      <Breakpoint small down>
+      <Breakpoint style={{ display: 'flex', gap: '250px' }} small down>
+        <a href="/">
+          <LogoImg src={require('../images/logo.jpg')} alt="logo" />
+        </a>
         <GiHamburgerMenu onClick={() => onHandleShowMenu()}></GiHamburgerMenu>
       </Breakpoint>
       {mobileMenu ? (

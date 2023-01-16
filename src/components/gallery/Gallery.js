@@ -2,8 +2,6 @@ import PageFooter from '../footer/Footer.js';
 import { Main } from 'components/home/Home.styled.js';
 import { GalleryListColumn, GalleryListRow } from './Gallery.styled';
 import Typed from 'react-typed';
-import { CiViewColumn } from 'react-icons/ci';
-import { RxRows } from 'react-icons/rx';
 import { FaExpandArrowsAlt } from 'react-icons/fa';
 import { useState } from 'react';
 import { Breakpoint } from 'react-socks';
@@ -66,17 +64,17 @@ const Gallery = ({ photoGallery }) => {
           </Fragment>
         </Breakpoint>
         {row ? (
-          <GalleryListColumn>
-            {photoGallery.map(photo => {
-              return <Photo key={photo.id} photoGallery={photo} />;
-            })}
-          </GalleryListColumn>
-        ) : (
           <GalleryListRow>
             {photoGallery.map(photo => {
               return <Photo key={photo.id} photoGallery={photo} />;
             })}
           </GalleryListRow>
+        ) : (
+          <GalleryListColumn>
+            {photoGallery.map(photo => {
+              return <Photo key={photo.id} photoGallery={photo} />;
+            })}
+          </GalleryListColumn>
         )}
       </Main>
       <PageFooter />

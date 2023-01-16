@@ -34,7 +34,6 @@ export const InstaIcon = styled.a`
 export const Wrap = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 200px;
   @media screen and (max-width: 1199px) {
     display: none;
@@ -48,6 +47,15 @@ export const MobileMenu = styled.div`
   position: absolute;
   top: 30px;
   right: 10px;
+
+  @media screen and (min-width: 1199px) {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: absolute;
+    top: 30px;
+    right: 10px;
+  }
 `;
 
 export const Link = styled(NavLink)`
@@ -83,4 +91,12 @@ export const Nav = styled.nav`
   align-items: center;
   justify-content: center;
   gap: 20px;
+`;
+
+export const MobileWrap = styled.div`
+  @media screen and (max-width: 1199px) {
+    display: flex;
+    gap: 300px;
+  }
+  display: none;
 `;
