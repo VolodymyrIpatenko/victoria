@@ -20,12 +20,12 @@ export default function MobileMenuComponent() {
         <MobileMenu>
           <Link
             className={({ isActive }) => (isActive ? 'active' : null)}
-            to="/rental-collection"
+            to="/"
           >
-            Rental Collection
+            Головна
           </Link>
-          <Link to="/gallery">Gallery</Link>
-          <Link to="/contacts">Contacts</Link>
+          <Link to="/gallery">Наш зал</Link>
+          <Link to="/contacts">Контакти</Link>
           <InstaIcon
             target="_blank"
             href="https://www.instagram.com/decorboutiquerental/"

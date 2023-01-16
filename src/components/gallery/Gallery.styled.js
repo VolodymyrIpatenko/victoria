@@ -1,8 +1,12 @@
 import styled from 'styled-components';
 
-const GalleryList = styled.ul`
+export const GalleryListRow = styled.ul`
   display: grid;
   gap: 20px;
 `;
 
-export default GalleryList;
+export const GalleryListColumn = styled.ul`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+`;

@@ -8,8 +8,13 @@ export const MyForm = styled.form`
   width: 400px;
   padding: 10px;
   border-radius: 7px;
-  height: 550px;
-  background-color: #ccd0c3;
+  height: 650px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 52, 0, 1) 0%,
+    rgba(212, 128, 0, 1) 100%,
+    rgba(238, 130, 238, 1) 100%
+  );
 `;
 
 export const ButtonSubmit = styled.button`

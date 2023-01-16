@@ -1,7 +1,13 @@
 import PageFooter from '../footer/Footer.js';
-import { Title, Main } from 'components/home/Home.styled.js';
-import GalleryList from './Gallery.styled';
+import { Main } from 'components/home/Home.styled.js';
+import { GalleryListColumn, GalleryListRow } from './Gallery.styled';
 import Typed from 'react-typed';
+import { CiViewColumn } from 'react-icons/ci';
+import { RxRows } from 'react-icons/rx';
+import { FaExpandArrowsAlt } from 'react-icons/fa';
+import { useState } from 'react';
+import { Breakpoint } from 'react-socks';
+import { Fragment } from 'react';
 
 const titleStyle = {
   marginTop: '50p',
@@ -13,12 +19,18 @@ const titleStyle = {
 const Photo = ({ photoGallery: { photo, alt } }) => {
   return (
     <li>
-      <img width="400" src={photo} alt={alt} loading="lazy" />
+      <img src={photo} alt={alt} loading="lazy" />
     </li>
   );
 };
 
 const Gallery = ({ photoGallery }) => {
+  const [row, setRow] = useState(true);
+
+  const toggleDirection = () => {
+    setRow(state => !state);
+  };
+
   return (
     <>
       <Main>
@@ -28,11 +40,44 @@ const Gallery = ({ photoGallery }) => {
           typeSpeed={100}
           showCursor={false}
         />
-        <GalleryList>
-          {photoGallery.map(photo => {
-            return <Photo key={photo.id} photoGallery={photo} />;
-          })}
-        </GalleryList>
+        <Breakpoint
+          style={{
+            display: 'flex',
+            gap: '20px',
+            marginLeft: 'auto',
+            fontSize: '30px',
+            cursor: 'pointer',
+          }}
+          xlarge
+          up
+        >
+          <Fragment>
+            <button
+              onClick={() => toggleDirection()}
+              style={{
+                fontSize: '30px',
+                background: 'transparent',
+                border: 'none',
+                cursor: 'pointer',
+              }}
+            >
+              <FaExpandArrowsAlt></FaExpandArrowsAlt>
+            </button>
+          </Fragment>
+        </Breakpoint>
+        {row ? (
+          <GalleryListColumn>
+            {photoGallery.map(photo => {
+              return <Photo key={photo.id} photoGallery={photo} />;
+            })}
+          </GalleryListColumn>
+        ) : (
+          <GalleryListRow>
+            {photoGallery.map(photo => {
+              return <Photo key={photo.id} photoGallery={photo} />;
+            })}
+          </GalleryListRow>
+        )}
       </Main>
       <PageFooter />
     </>

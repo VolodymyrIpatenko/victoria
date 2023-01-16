@@ -1,4 +1,6 @@
 import { Img, Main, Description, Coaches, Title } from './Home.styled';
+import { Breakpoint } from 'react-socks';
+import { Fragment } from 'react';
 import PageFooter from '../footer/Footer.js';
 import Typed from 'react-typed';
 import './coaches.css';
@@ -16,6 +18,10 @@ const Coach = ({ coachData: { photo, alt, id, name, description } }) => {
       <div class="flip-card-inner">
         <div class="flip-card-front">
           <img src={photo} alt={alt} width="300" height="200" />
+          <Breakpoint small down>
+            <h2>{name}</h2>
+            <p>{description}</p>
+          </Breakpoint>
         </div>
         <div class="flip-card-back">
           <h1>{name}</h1>
@@ -32,7 +38,7 @@ const Home = ({ coachData }) => {
       <Main>
         <Typed
           style={titleStyle}
-          strings={['Спортклуб VICTORIA']}
+          strings={['Спортклуб ВІКТОРІЯ']}
           typeSpeed={100}
           showCursor={false}
         />
@@ -45,6 +51,12 @@ const Home = ({ coachData }) => {
               return <Coach key={coach.id} coachData={coach} />;
             })}
           </Coaches>
+          <section
+            style={{
+              display: 'grid',
+              placeContent: 'center',
+            }}
+          ></section>
         </section>
       </Main>
       <PageFooter />

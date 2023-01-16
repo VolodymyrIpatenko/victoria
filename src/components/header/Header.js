@@ -3,12 +3,16 @@ import { Outlet } from 'react-router-dom';
 import { Header, Logo, Link, Nav, Wrap, InstaIcon } from './Header.styled';
 import MobileMenuComponent from './MobileMenu.js';
 import './header.css';
+import { LogoImg } from 'components/common/Common.styled';
 
 export const HeaderComponent = () => {
   return (
     <>
       <Header>
         <Wrap>
+          <a href="/">
+            <LogoImg src={require('../images/logo.jpg')} alt="logo" />
+          </a>
           <Nav>
             <Link to="/">Головна</Link>
             <Link

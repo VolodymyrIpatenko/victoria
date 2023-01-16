@@ -9,7 +9,12 @@ export const Header = styled.header`
   gap: 20px;
   top: 0;
   padding: 30px;
-  background: #ccd0c3;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 52, 0, 1) 0%,
+    rgba(212, 128, 0, 1) 100%,
+    rgba(238, 130, 238, 1) 100%
+  );
   @media (max-width: 768px) {
     display: block;
     height: 200px;
@@ -30,8 +35,7 @@ export const Wrap = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 50px;
-
+  gap: 200px;
   @media screen and (max-width: 1199px) {
     display: none;
   }

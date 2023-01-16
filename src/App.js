@@ -2,7 +2,6 @@ import { Route, Routes } from 'react-router-dom';
 
 import Contacts from './components/contacts/Contacts.js';
 import Home from './components/home/Home.js';
-// import Rental from './components/rental/Rental.js';
 import Gallery from './components/gallery/Gallery.js';
 import galleryCollection from './components/gallery/gallery.json';
 import coachList from './components/home/coach.json';
