@@ -1,6 +1,5 @@
 import PageFooter from '../footer/Footer.js';
-import React from 'react';
-import { useState } from 'react';
+import { React, useState } from 'react';
 import Modal from '../modal/Modal.js';
 import emailjs from 'emailjs-com';
 import validator from 'validator';
@@ -10,6 +9,7 @@ import {
   Textarea,
   Input,
   LabelText,
+  FormWrapper,
 } from './Contacts.styled';
 
 const style = {
@@ -19,12 +19,22 @@ const style = {
   margin: '100px',
 };
 
+function useInput(defaultValue = '') {
+  const [value, setValue] = useState(defaultValue);
+
+  const handleChange = e => {
+    setValue(e.target.value);
+  };
+
+  return [value, handleChange, setValue];
+}
+
 const Contacts = () => {
-  const [name, setName] = useState('');
+  const [name, setName] = useInput('');
   const [email, setEmailError] = useState('');
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useInput('');
   const [phone, setPhoneNumber] = useState('');
-  const [modalOpen, setModalOpen] = useState(false);
+  const [isModalOpen, setModalOpen] = useState(false);
 
   const values =
     name === '' ||
@@ -54,20 +64,7 @@ const Contacts = () => {
   };
 
   const handleModal = () => {
-    setModalOpen(!modalOpen);
-  };
-
-  const ManageValues = e => {
-    switch (e.currentTarget.name) {
-      case 'name':
-        setName(e.currentTarget.value);
-        break;
-      case 'message':
-        setMessage(e.currentTarget.value);
-        break;
-      default:
-        throw new Error('something went wrong');
-    }
+    setModalOpen(prevState => !prevState);
   };
 
   function sendEmail(e) {
@@ -94,7 +91,7 @@ const Contacts = () => {
 
   return (
     <>
-      <div style={style}>
+      <FormWrapper>
         <MyForm onSubmit={sendEmail}>
           <h1>Напишіть нам</h1>
           <LabelText>
@@ -102,7 +99,7 @@ const Contacts = () => {
             <Input
               type="text"
               placeholder="Ваше ім'я"
-              onChange={ManageValues}
+              onChange={setName}
               name="name"
             />
           </LabelText>
@@ -117,7 +114,7 @@ const Contacts = () => {
             <p
               style={{
                 fontWeight: 'bold',
-                color: 'red',
+                color: 'white',
               }}
             >
               {email}
@@ -138,20 +135,20 @@ const Contacts = () => {
             <p>Повідомлення</p>
             <Textarea
               placeholder="Напишіть своє повідомлення"
-              onChange={ManageValues}
+              onChange={setMessage}
               name="message"
             />
           </LabelText>
           <ButtonSubmit
             disabled={values ? true : false}
             type="submit"
-            onClick={handleModal}
+            onClick={() => handleModal()}
           >
             {values ? 'Заповніть поля' : 'Відправити'}
           </ButtonSubmit>
-          {modalOpen ? <Modal /> : null}
+          {isModalOpen ? <Modal /> : null}
         </MyForm>
-      </div>
+      </FormWrapper>
       <PageFooter />
     </>
   );

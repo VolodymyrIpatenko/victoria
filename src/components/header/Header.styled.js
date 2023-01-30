@@ -21,11 +21,11 @@ export const Header = styled.header`
   }
 `;
 
-export const InstaIcon = styled.a`
+export const Icon = styled.a`
   position: relative;
   transition: color 550ms cubic-bezier(0.4, 0, 0.2, 1);
   font-size: 20px;
-  color: white;
+  color: #141305;
   &:hover {
     color: #2196f3;
   }
@@ -59,31 +59,19 @@ export const MobileMenu = styled.div`
 `;
 
 export const Link = styled(NavLink)`
-  padding: 1px 4px;
+  padding: 4px 7px;
   position: relative;
   transition: color 550ms cubic-bezier(0.4, 0, 0.2, 1);
   text-decoration: none;
   font-size: 30px;
   border-radius: 7px;
-  color: white;
+  color: #ffffff;
   &:is(:hover, :active) {
     color: #2196f3;
   }
   @media screen and (max-width: 768px) {
     font-size: 20px;
   }
-`;
-export const Logo = styled(Link)`
-  font-size: 30px;
-  position: relative;
-  transition: color 550ms cubic-bezier(0.4, 0, 0.2, 1);
-  color: white;
-  font-family: 'Freestype Script';
-  @media screen and(max-width: 768px) {
-    position: absolute;
-    top: 0;
-    left: 0;
-  } ;
 `;
 
 export const Nav = styled.nav`

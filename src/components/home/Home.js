@@ -1,9 +1,9 @@
 import { Img, Main, Description, Coaches, Title } from './Home.styled';
 import { Breakpoint } from 'react-socks';
-import { Fragment } from 'react';
 import PageFooter from '../footer/Footer.js';
 import Typed from 'react-typed';
-import './coaches.css';
+import Slider from '../slider/Slider.js';
+import './coach.css';
 
 const titleStyle = {
   marginTop: '50p',
@@ -25,7 +25,9 @@ const Coach = ({ coachData: { photo, alt, id, name, description } }) => {
         </div>
         <div class="flip-card-back">
           <h1>{name}</h1>
-          <p>{description}</p>
+          <p style={{ padding: '10px', textAlign: 'left', lineHeight: '28px' }}>
+            {description}
+          </p>
         </div>
       </div>
     </div>
@@ -58,6 +60,7 @@ const Home = ({ coachData }) => {
             }}
           ></section>
         </section>
+        <Slider />
       </Main>
       <PageFooter />
     </>

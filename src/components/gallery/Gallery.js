@@ -59,7 +59,7 @@ const Gallery = ({ photoGallery }) => {
                 cursor: 'pointer',
               }}
             >
-              <FaExpandArrowsAlt></FaExpandArrowsAlt>
+              <FaExpandArrowsAlt title="Змінити напрям"></FaExpandArrowsAlt>
             </button>
           </Fragment>
         </Breakpoint>

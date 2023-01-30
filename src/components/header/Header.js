@@ -1,6 +1,7 @@
 import { SlSocialInstagram } from 'react-icons/sl';
+import { BsFacebook } from 'react-icons/bs';
 import { Outlet } from 'react-router-dom';
-import { Header, Logo, Link, Nav, Wrap, InstaIcon } from './Header.styled';
+import { Header, Link, Nav, Wrap, Icon } from './Header.styled';
 import MobileMenuComponent from './MobileMenu.js';
 import './header.css';
 import { LogoImg } from 'components/common/Common.styled';
@@ -10,7 +11,7 @@ export const HeaderComponent = () => {
     <>
       <Header>
         <Wrap>
-          <a href="/">
+          <a title="На головну" href="/">
             <LogoImg src={require('../images/logo.jpg')} alt="logo" />
           </a>
           <Nav>
@@ -23,15 +24,22 @@ export const HeaderComponent = () => {
             </Link>
 
             <Link to="/contacts">Зв'язатися з нами</Link>
+            <Link to="/sportbar">Спортбар</Link>
           </Nav>
 
-          <div>
-            <InstaIcon
+          <div style={{ display: 'flex', gap: '20px' }}>
+            <Icon
               target="_blank"
               href="https://www.instagram.com/sport_club_victoria/"
             >
               <SlSocialInstagram></SlSocialInstagram>
-            </InstaIcon>
+            </Icon>
+            <Icon
+              href="https://www.facebook.com/VICTORIAclubsport/"
+              target="_blank"
+            >
+              <BsFacebook></BsFacebook>
+            </Icon>
           </div>
         </Wrap>
       </Header>

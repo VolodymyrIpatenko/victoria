@@ -30,12 +30,11 @@ export const Description = styled.p`
   font-style: italic;
 `;
 
-export const Coaches = styled.div`
-  display: flex;
-  gap: 50px;
+export const Coaches = styled.ul`
+  display: grid;
+  gap: 150px;
   margin: 100px;
   @media screen and (max-width: 1199px) {
-    display: grid;
     gap: 200px;
   }
 `;

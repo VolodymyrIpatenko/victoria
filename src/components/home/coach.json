@@ -1,16 +1,16 @@
 [
   {
-    "photo": "https://image-cdn.essentiallysports.com/wp-content/uploads/Arnold-Schwarzenegger-FI-2-640x576.jpeg",
+    "photo": "https://volodymyripatenko.github.io/victoria-react/denis.jpg",
     "id": "1",
     "alt": "Наш тренер",
     "name": "Денис",
-    "description": "Маю дуже великий досвід"
+    "description": "Кмс по жиму штанги лежачі б/е WPRO.Досвід роботи тренером 3 роки Виступаючий спортсмен по Павеліфтінгу.Особисті якості:Комунікабельність,індивідуальний підхід,Мотивую до нових досягнень у спорті.Направлення тренуваннь:Вдосконалення технік,Збільшення силових результатів,Готую до змагань по паверліфтингу"
   },
   {
-    "photo": "https://image-cdn.essentiallysports.com/wp-content/uploads/Arnold-Schwarzenegger-FI-2-640x576.jpeg",
+    "photo": "https://volodymyripatenko.github.io/victoria-react/alex.jpg",
     "id": "2",
     "alt": "Наш тренер",
     "name": "Олександр",
-    "description": "Маю теж дуже великий досвід"
+    "description": "Магістр спеціальності Фізична культура і спорт.Cертифікований тренер тренажерного залу, дієтолог - нутриціолог.Майстер спорту України з Панкратіону.Направлення тренувань: Силові тренування, функціональний тренінг, загальна фізична підготовка, бокс."
   }
 ]

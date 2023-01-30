@@ -5,7 +5,7 @@ import { LogoImg } from 'components/common/Common.styled';
 const PageFooter = () => {
   return (
     <Footer>
-      <a href="/">
+      <a title="На головну" href="/">
         <LogoImg src={require('../images/logo.jpg')} alt="logo" />
       </a>
       <MailLink href="mailto:sport_club_victoria@gmail.com">
