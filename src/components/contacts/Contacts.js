@@ -1,8 +1,8 @@
-import PageFooter from '../footer/Footer.js';
 import { React, useState } from 'react';
 import Modal from '../modal/Modal.js';
 import emailjs from 'emailjs-com';
 import validator from 'validator';
+import { useToggle, useInput } from '../customHooks/CustomHooks';
 import {
   MyForm,
   ButtonSubmit,
@@ -12,29 +12,12 @@ import {
   FormWrapper,
 } from './Contacts.styled';
 
-const style = {
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  margin: '100px',
-};
-
-function useInput(defaultValue = '') {
-  const [value, setValue] = useState(defaultValue);
-
-  const handleChange = e => {
-    setValue(e.target.value);
-  };
-
-  return [value, handleChange, setValue];
-}
-
 const Contacts = () => {
   const [name, setName] = useInput('');
   const [email, setEmailError] = useState('');
   const [message, setMessage] = useInput('');
   const [phone, setPhoneNumber] = useState('');
-  const [isModalOpen, setModalOpen] = useState(false);
+  const [isModalOpen, setModalOpen] = useToggle(false);
 
   const values =
     name === '' ||
@@ -61,10 +44,6 @@ const Contacts = () => {
     } else {
       setPhoneNumber(e.currentTarget.value);
     }
-  };
-
-  const handleModal = () => {
-    setModalOpen(prevState => !prevState);
   };
 
   function sendEmail(e) {
@@ -142,14 +121,13 @@ const Contacts = () => {
           <ButtonSubmit
             disabled={values ? true : false}
             type="submit"
-            onClick={() => handleModal()}
+            onClick={() => setModalOpen.toggle()}
           >
             {values ? 'Заповніть поля' : 'Відправити'}
           </ButtonSubmit>
           {isModalOpen ? <Modal /> : null}
         </MyForm>
       </FormWrapper>
-      <PageFooter />
     </>
   );
 };

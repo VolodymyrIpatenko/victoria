@@ -2,16 +2,12 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import { SlSocialInstagram } from 'react-icons/sl';
 import { BsFacebook } from 'react-icons/bs';
 import { Link, Icon, MobileMenu } from './Header.styled';
-import { useState } from 'react';
-import { LogoImg } from 'components/common/Common.styled';
+import { useToggle } from '../customHooks/CustomHooks';
+import { LogoImg } from './Header.styled';
 import { Breakpoint } from 'react-socks';
 
 export default function MobileMenuComponent() {
-  const [isOpenMobileMenu, setMobileMenuOpen] = useState(false);
-
-  const onHandleShowMenu = () => {
-    setMobileMenuOpen(prevState => !prevState);
-  };
+  const [isOpenMobileMenu, setMobileMenuOpen] = useToggle(false);
 
   return (
     <MobileMenu>
@@ -19,7 +15,9 @@ export default function MobileMenuComponent() {
         <a title="На головну" href="/">
           <LogoImg src={require('../images/logo.jpg')} alt="logo" />
         </a>
-        <GiHamburgerMenu onClick={() => onHandleShowMenu()}></GiHamburgerMenu>
+        <GiHamburgerMenu
+          onClick={() => setMobileMenuOpen.toggle()}
+        ></GiHamburgerMenu>
       </Breakpoint>
       {isOpenMobileMenu ? (
         <MobileMenu>

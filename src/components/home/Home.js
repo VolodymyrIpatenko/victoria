@@ -1,9 +1,17 @@
-import { Img, Main, Description, Coaches, Title } from './Home.styled';
+import {
+  Main,
+  Description,
+  Coaches,
+  Title,
+  CoachDescription,
+} from './Home.styled';
 import { Breakpoint } from 'react-socks';
-import PageFooter from '../footer/Footer.js';
 import Typed from 'react-typed';
 import Slider from '../slider/Slider.js';
 import './coach.css';
+import { nanoid } from 'nanoid';
+
+const id = nanoid();
 
 const titleStyle = {
   marginTop: '50p',
@@ -12,9 +20,9 @@ const titleStyle = {
   textAlign: 'center',
 };
 
-const Coach = ({ coachData: { photo, alt, id, name, description } }) => {
+const Coach = ({ coachData: { photo, alt, name, description } }) => {
   return (
-    <div class="flip-card">
+    <li key={id} class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
           <img src={photo} alt={alt} width="300" height="200" />
@@ -25,12 +33,10 @@ const Coach = ({ coachData: { photo, alt, id, name, description } }) => {
         </div>
         <div class="flip-card-back">
           <h1>{name}</h1>
-          <p style={{ padding: '10px', textAlign: 'left', lineHeight: '28px' }}>
-            {description}
-          </p>
+          <CoachDescription>{description}</CoachDescription>
         </div>
       </div>
-    </div>
+    </li>
   );
 };
 
@@ -44,8 +50,18 @@ const Home = ({ coachData }) => {
           typeSpeed={100}
           showCursor={false}
         />
-        <Description>Сюди можна якись текст що буде описувати зал</Description>
-        <Img src={require('./sport.jpg')} alt="wedding" loading="lazy" />
+        <Description>
+          Спортивний клуб «Вікторія» — це чудове місце для активного відпочинку,
+          а також нових знайомств і прекрасного спілкування. У нашому клубі ви
+          гарантовано отримаєте гарний настрій і заряд бадьорості, який
+          необхідний для досягнення успіху в житті! У нашому клубі продумано
+          зонування і розташування тренажерів відповідно до концепції
+          тренувального процесу. Це дозволяє виключити можливість одночасної
+          концентрації великої кількості людей в одній зоні клубу, щоб
+          тренувальний процес приносив задоволення і був комфортним й приємним
+          абсолютно для кожного. Основний принцип нашої роботи — надання послуг
+          кращої якості при збереженні помірних цін.
+        </Description>
         <section>
           <Title>Наші тренери</Title>
           <Coaches>
@@ -53,16 +69,9 @@ const Home = ({ coachData }) => {
               return <Coach key={coach.id} coachData={coach} />;
             })}
           </Coaches>
-          <section
-            style={{
-              display: 'grid',
-              placeContent: 'center',
-            }}
-          ></section>
         </section>
         <Slider />
       </Main>
-      <PageFooter />
     </>
   );
 };

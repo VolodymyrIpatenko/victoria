@@ -88,3 +88,8 @@ export const MobileWrap = styled.div`
   }
   display: none;
 `;
+
+export const LogoImg = styled.img`
+  width: 70px;
+  height: 60px;
+`;

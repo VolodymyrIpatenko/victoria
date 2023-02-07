@@ -4,13 +4,13 @@ import Home from './components/home/Home.js';
 import Gallery from './components/gallery/Gallery.js';
 import galleryList from './components/gallery/gallery.json';
 import coachList from './components/home/coach.json';
-import { HeaderComponent } from './components/header/Header.js';
-import GalleryReact from './components/goods/Gallery';
+import SharedLayout from './components/layout/Layout.js';
+import GalleryReact from './components/sportbar/Sportbar.js';
 
 export const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<HeaderComponent />}>
+      <Route path="/" element={<SharedLayout />}>
         <Route index element={<Home coachData={coachList} />} />
         <Route
           path="/gallery"

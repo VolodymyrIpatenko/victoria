@@ -1,14 +1,5 @@
 import styled from 'styled-components';
 
-export const Img = styled.img`
-  @media screen and (min-width: 1199px) {
-    display: block;
-    height: auto;
-    width: 700px;
-    height: 500px;
-  }
-`;
-
 export const Main = styled.main`
   display: flex;
   flex-direction: column;
@@ -37,4 +28,10 @@ export const Coaches = styled.ul`
   @media screen and (max-width: 1199px) {
     gap: 200px;
   }
+`;
+
+export const CoachDescription = styled.p`
+  padding: 10px;
+  text-align: left;
+  line-height: 28px;
 `;

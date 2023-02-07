@@ -1,9 +1,8 @@
-import PageFooter from '../footer/Footer.js';
 import { Main } from 'components/home/Home.styled.js';
 import { GalleryListColumn, GalleryListRow } from './Gallery.styled';
 import Typed from 'react-typed';
 import { FaExpandArrowsAlt } from 'react-icons/fa';
-import { useState } from 'react';
+import { useToggle } from '../customHooks/CustomHooks';
 import { Breakpoint } from 'react-socks';
 import { Fragment } from 'react';
 
@@ -23,11 +22,7 @@ const Photo = ({ photoGallery: { photo, alt } }) => {
 };
 
 const Gallery = ({ photoGallery }) => {
-  const [row, setRow] = useState(true);
-
-  const toggleDirection = () => {
-    setRow(state => !state);
-  };
+  const [row, setToggleDirection] = useToggle(true);
 
   return (
     <>
@@ -51,7 +46,7 @@ const Gallery = ({ photoGallery }) => {
         >
           <Fragment>
             <button
-              onClick={() => toggleDirection()}
+              onClick={() => setToggleDirection.toggle()}
               style={{
                 fontSize: '30px',
                 background: 'transparent',
@@ -64,20 +59,19 @@ const Gallery = ({ photoGallery }) => {
           </Fragment>
         </Breakpoint>
         {row ? (
-          <GalleryListRow>
-            {photoGallery.map(photo => {
-              return <Photo key={photo.id} photoGallery={photo} />;
-            })}
-          </GalleryListRow>
-        ) : (
           <GalleryListColumn>
             {photoGallery.map(photo => {
               return <Photo key={photo.id} photoGallery={photo} />;
             })}
           </GalleryListColumn>
+        ) : (
+          <GalleryListRow>
+            {photoGallery.map(photo => {
+              return <Photo key={photo.id} photoGallery={photo} />;
+            })}
+          </GalleryListRow>
         )}
       </Main>
-      <PageFooter />
     </>
   );
 };

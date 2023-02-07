@@ -51,6 +51,13 @@ export const Textarea = styled.textarea`
   padding: 5px;
   border-radius: 5px;
   resize: none;
+  &::placeholder {
+    font-size: 18px;
+  }
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 10px 2px #7065ff;
+  }
 `;
 
 export const Input = styled.input`
@@ -59,6 +66,13 @@ export const Input = styled.input`
   padding: 5px;
   border-radius: 5px;
   border: none;
+  &::placeholder {
+    font-size: 18px;
+  }
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 10px 2px #7065ff;
+  }
 `;
 
 export const LabelText = styled.p`

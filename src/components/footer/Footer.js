@@ -1,6 +1,5 @@
-import { Logo } from '../header/Header.styled';
 import { Footer, MailLink } from './Footer.styled';
-import { LogoImg } from 'components/common/Common.styled';
+import { LogoImg } from 'components/header/Header.styled';
 
 const PageFooter = () => {
   return (

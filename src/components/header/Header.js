@@ -1,12 +1,11 @@
 import { SlSocialInstagram } from 'react-icons/sl';
 import { BsFacebook } from 'react-icons/bs';
 import { Outlet } from 'react-router-dom';
-import { Header, Link, Nav, Wrap, Icon } from './Header.styled';
+import { Header, Link, Nav, Wrap, Icon, LogoImg } from './Header.styled';
 import MobileMenuComponent from './MobileMenu.js';
 import './header.css';
-import { LogoImg } from 'components/common/Common.styled';
 
-export const HeaderComponent = () => {
+const HeaderComponent = () => {
   return (
     <>
       <Header>
@@ -48,3 +47,5 @@ export const HeaderComponent = () => {
     </>
   );
 };
+
+export default HeaderComponent;

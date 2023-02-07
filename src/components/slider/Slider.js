@@ -1,49 +1,50 @@
-import React from 'react';
-import './slider.css';
-const { useState, useEffect, useRef } = React;
+import Slider from 'react-slick';
+import { Wrraper } from './Slider.styled.js';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
-const TOTAL_SLIDES = 3;
-
-const Slider = () => {
-  const [current, setCurrent] = useState(0);
-  const ref = useRef(null);
-
-  const next = () => {
-    if (current === TOTAL_SLIDES) return;
-    else setCurrent(current + 1);
+const SliderComponent = () => {
+  const settings = {
+    infinite: true,
+    dots: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    lazyLoad: true,
+    autoplay: true,
+    autoplaySpeed: 4000,
   };
-
-  const prev = () => {
-    if (current === 0) return;
-    else setCurrent(current - 1);
-  };
-
-  useEffect(() => {
-    ref.current.style.transition = 'all 1s linear';
-    ref.current.style.transform = `translateX(-${current}00%)`;
-  }, [current]);
-
   return (
-    <div className="wrapper">
-      <div className="frame">
-        <div className="box-container" ref={ref}>
-          <div className="box">
-            <p>Hello</p>
-          </div>
-          <div className="box">1</div>
-          <div className="box">2</div>
-          <div className="box">3</div>
+    <Wrraper>
+      <h2>Абонементи та графік роботи</h2>
+      <Slider {...settings}>
+        <div>
+          <h3>Режим роботи</h3>
+          <p>Пн.-Пт. 8:00-21:30</p>
+          <p>Сб. 10:00-19:00</p>
+          <p>Неділя - Вихідний</p>
         </div>
-      </div>
-      <div className="button-container">
-        <div className="button" onClick={prev}>
-          Left
+        <div>
+          <h3>Разове тренування</h3>
+          <p>100 грн</p>
         </div>
-        <div className="button" onClick={next}>
-          Right
+        <div>
+          <h3>3 Місяці</h3>
+          <p>Безліміт 2000грн</p>
+          <p>Термін дії абонемента 90 днів</p>
         </div>
-      </div>
-    </div>
+        <div>
+          <h3>6 Місяців</h3>
+          <p>Безліміт 3800грн</p>
+          <p>Термін дії абонемента 180 днів</p>
+        </div>
+        <div>
+          <h3>12 Місяців</h3>
+          <p>Безліміт 6200грн</p>
+          <p>Термін дії абонемента 360 днів</p>
+        </div>
+      </Slider>
+    </Wrraper>
   );
 };
-export default Slider;
+
+export default SliderComponent;
