@@ -3,6 +3,7 @@ import { BsFacebook } from 'react-icons/bs';
 import { Outlet } from 'react-router-dom';
 import { Header, Link, Nav, Wrap, Icon, LogoImg } from './Header.styled';
 import MobileMenuComponent from './MobileMenu.js';
+import SwitchMode from '../SwitchBtn/LightSwitch';
 import './header.css';
 
 const HeaderComponent = () => {

@@ -25,7 +25,7 @@ export const Icon = styled.a`
   position: relative;
   transition: color 550ms cubic-bezier(0.4, 0, 0.2, 1);
   font-size: 20px;
-  color: #141305;
+  color: orange;
   &:hover {
     color: #2196f3;
   }

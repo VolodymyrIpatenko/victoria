@@ -5,6 +5,7 @@ import { Link, Icon, MobileMenu } from './Header.styled';
 import { useToggle } from '../customHooks/CustomHooks';
 import { LogoImg } from './Header.styled';
 import { Breakpoint } from 'react-socks';
+import SwitchMode from '../SwitchBtn/LightSwitch';
 
 export default function MobileMenuComponent() {
   const [isOpenMobileMenu, setMobileMenuOpen] = useToggle(false);
@@ -15,6 +16,7 @@ export default function MobileMenuComponent() {
         <a title="На головну" href="/">
           <LogoImg src={require('../images/logo.jpg')} alt="logo" />
         </a>
+
         <GiHamburgerMenu
           onClick={() => setMobileMenuOpen.toggle()}
         ></GiHamburgerMenu>
@@ -30,6 +32,7 @@ export default function MobileMenuComponent() {
           <Link to="/gallery">Наш зал</Link>
           <Link to="/contacts">Контакти</Link>
           <Link to="/sportbar">Спортбар</Link>
+
           <Icon
             href="https://www.instagram.com/sport_club_victoria/"
             target="_blank"
@@ -44,6 +47,7 @@ export default function MobileMenuComponent() {
           </Icon>
         </MobileMenu>
       ) : null}
+      <SwitchMode />
     </MobileMenu>
   );
 }

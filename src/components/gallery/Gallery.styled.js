@@ -10,3 +10,11 @@ export const GalleryListColumn = styled.ul`
   grid-template-columns: 1fr 1fr 1fr;
   gap: 30px;
 `;
+
+export const DirectionBtn = styled.button`
+  font-size: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: orange;
+`;

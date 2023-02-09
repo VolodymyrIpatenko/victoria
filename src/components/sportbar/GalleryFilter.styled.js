@@ -29,7 +29,7 @@ export const ProductsVariety = styled.ul`
 `;
 
 export const SportbarMain = styled.main`
-  margin: 50px;
+  padding: 50px;
 `;
 
 export const ProductsGallery = styled.ul`

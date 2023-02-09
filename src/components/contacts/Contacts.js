@@ -1,7 +1,8 @@
-import { React, useState } from 'react';
+import { React, useState, useContext } from 'react';
 import Modal from '../modal/Modal.js';
 import emailjs from 'emailjs-com';
 import validator from 'validator';
+import { DarkModeContext } from '../context/DarkModeContext';
 import { useToggle, useInput } from '../customHooks/CustomHooks';
 import {
   MyForm,
@@ -13,6 +14,7 @@ import {
 } from './Contacts.styled';
 
 const Contacts = () => {
+  const { darkMode } = useContext(DarkModeContext);
   const [name, setName] = useInput('');
   const [email, setEmailError] = useState('');
   const [message, setMessage] = useInput('');
@@ -68,66 +70,75 @@ const Contacts = () => {
       );
   }
 
+  const contentProvider = () => {
+    return (
+      <>
+        <FormWrapper>
+          <MyForm onSubmit={sendEmail}>
+            <h1>Напишіть нам</h1>
+            <LabelText>
+              <p>Ім'я</p>
+              <Input
+                type="text"
+                placeholder="Ваше ім'я"
+                onChange={setName}
+                name="name"
+              />
+            </LabelText>
+            <LabelText>
+              <p>Пошта</p>
+              <Input
+                type="email"
+                placeholder="Ваша пошта"
+                onChange={validateEmail}
+                name="email"
+              />
+              <p
+                style={{
+                  fontWeight: 'bold',
+                  color: 'white',
+                }}
+              >
+                {email}
+              </p>
+            </LabelText>
+            <LabelText>
+              <p>Телефон</p>
+              <Input
+                type="tel"
+                placeholder="Ваш номер телефону"
+                name="phone"
+                value={phone}
+                maxLength="12"
+                onChange={validatePhoneNumber}
+              />
+            </LabelText>
+            <LabelText>
+              <p>Повідомлення</p>
+              <Textarea
+                placeholder="Напишіть своє повідомлення"
+                onChange={setMessage}
+                name="message"
+              />
+            </LabelText>
+            <ButtonSubmit
+              disabled={values ? true : false}
+              type="submit"
+              onClick={() => setModalOpen.toggle()}
+            >
+              {values ? 'Заповніть поля' : 'Відправити'}
+            </ButtonSubmit>
+            {isModalOpen ? <Modal /> : null}
+          </MyForm>
+        </FormWrapper>
+      </>
+    );
+  };
   return (
     <>
-      <FormWrapper>
-        <MyForm onSubmit={sendEmail}>
-          <h1>Напишіть нам</h1>
-          <LabelText>
-            <p>Ім'я</p>
-            <Input
-              type="text"
-              placeholder="Ваше ім'я"
-              onChange={setName}
-              name="name"
-            />
-          </LabelText>
-          <LabelText>
-            <p>Пошта</p>
-            <Input
-              type="email"
-              placeholder="Ваша пошта"
-              onChange={validateEmail}
-              name="email"
-            />
-            <p
-              style={{
-                fontWeight: 'bold',
-                color: 'white',
-              }}
-            >
-              {email}
-            </p>
-          </LabelText>
-          <LabelText>
-            <p>Телефон</p>
-            <Input
-              type="tel"
-              placeholder="Ваш номер телефону"
-              name="phone"
-              value={phone}
-              maxLength="12"
-              onChange={validatePhoneNumber}
-            />
-          </LabelText>
-          <LabelText>
-            <p>Повідомлення</p>
-            <Textarea
-              placeholder="Напишіть своє повідомлення"
-              onChange={setMessage}
-              name="message"
-            />
-          </LabelText>
-          <ButtonSubmit
-            disabled={values ? true : false}
-            type="submit"
-            onClick={() => setModalOpen.toggle()}
-          >
-            {values ? 'Заповніть поля' : 'Відправити'}
-          </ButtonSubmit>
-          {isModalOpen ? <Modal /> : null}
-        </MyForm>
-      </FormWrapper>
+      <div className={darkMode ? `Content Content-dark` : `Content`}>
+        {contentProvider()}
+      </div>
     </>
   );
 };
