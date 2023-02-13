@@ -7,16 +7,12 @@ import { SwitchContainer } from './Switch.styled.js';
 function SwitchMode() {
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
 
-  const handleClick = () => {
-    toggleDarkMode();
-  };
-
   return (
     <SwitchContainer>
       {darkMode ? (
-        <FiSun onClick={() => handleClick()}></FiSun>
+        <FiSun onClick={() => toggleDarkMode()}></FiSun>
       ) : (
-        <BsMoonFill onClick={() => handleClick()}></BsMoonFill>
+        <BsMoonFill onClick={() => toggleDarkMode()}></BsMoonFill>
       )}
     </SwitchContainer>
   );

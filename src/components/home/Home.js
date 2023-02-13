@@ -119,7 +119,7 @@ const Home = ({ coachData }) => {
   };
   return (
     <>
-      <div className={darkMode ? `Content Content-dark` : `Content`}>
+      <div className={darkMode ? `Content-dark` : null}>
         {contentProvider()}
       </div>
     </>

@@ -6,7 +6,6 @@ import galleryList from './components/gallery/gallery.json';
 import coachList from './components/home/coach.json';
 import SharedLayout from './components/layout/Layout.js';
 import GalleryReact from './components/sportbar/Sportbar.js';
-import './App.css';
 
 export const App = () => {
   return (
