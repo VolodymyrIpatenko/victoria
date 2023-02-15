@@ -8,12 +8,12 @@ import { DarkModeProvider } from './components/context/DarkModeContext';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <DarkModeProvider>
-      <BreakpointProvider>
-        <BrowserRouter>
+    <BrowserRouter>
+      <DarkModeProvider>
+        <BreakpointProvider>
           <App />
-        </BrowserRouter>
-      </BreakpointProvider>
-    </DarkModeProvider>
+        </BreakpointProvider>
+      </DarkModeProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
