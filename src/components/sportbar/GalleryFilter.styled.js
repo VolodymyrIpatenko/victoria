@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const CategoryButton = styled.button`
   width: 150px;
   padding: 17px;
-  height: 30px;
+  height: 50px;
   margin: 15px;
   display: grid;
   place-content: center;
@@ -34,7 +34,6 @@ export const SportbarMain = styled.main`
 
 export const ProductsGallery = styled.ul`
   display: grid;
-  grid-template-columns: repeat(2, 200px);
   justify-content: center;
   margin: 50px;
 
@@ -48,15 +47,20 @@ export const ProductsGallery = styled.ul`
   }
 `;
 
-export const StyledDescription = styled.p`
+export const StyledPrice = styled.p`
   font-size: 20px;
   color: white;
+`;
+
+export const ProductCard = styled.div`
+  display: grid;
+  place-content: center;
+  height: 70px;
 `;
 
 export const ProductsGalleryItem = styled.li`
   width: 200px;
   @media screen and (min-width: 1199px) {
-    height: 350px;
     width: 300px;
     border: 1px solid black;
     background: black;
