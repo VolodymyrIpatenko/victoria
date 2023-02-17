@@ -15,8 +15,8 @@ const SliderComponent = () => {
   };
   return (
     <Wrraper>
-      <h2>Абонементи та графік роботи</h2>
-      <Slider {...settings}>
+      <h2 style={{ textAlign: 'center' }}>Абонементи та графік роботи</h2>
+      <Slider {...settings} style={{ textAlign: 'center' }}>
         <div>
           <h3>Режим роботи</h3>
           <p>Пн.-Пт. 8:00-21:30</p>

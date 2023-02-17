@@ -8,14 +8,13 @@ export const FormWrapper = styled.div`
 `;
 
 export const MyForm = styled.form`
+  width: 400px;
+  height: 580px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
-  width: 400px;
-  padding: 10px;
   border-radius: 7px;
-  height: 650px;
+
   background: linear-gradient(
     90deg,
     rgba(255, 52, 0, 1) 0%,
@@ -25,8 +24,6 @@ export const MyForm = styled.form`
 `;
 
 export const ButtonSubmit = styled.button`
-  position: relative;
-  transition: background 550ms cubic-bezier(0.4, 0, 0.2, 1);
   width: 150px;
   padding: 10px;
   border-radius: 5px;
@@ -47,7 +44,7 @@ export const ButtonSubmit = styled.button`
 
 export const Textarea = styled.textarea`
   width: 300px;
-  height: 150px;
+  height: 120px;
   padding: 5px;
   border-radius: 5px;
   resize: none;
@@ -75,8 +72,8 @@ export const Input = styled.input`
   }
 `;
 
-export const LabelText = styled.p`
-  margin: 5px;
+export const LabelText = styled.label`
+  margin: 15px;
   font-size: 20px;
   color: white;
 `;

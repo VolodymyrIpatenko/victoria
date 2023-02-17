@@ -53,16 +53,16 @@ const Contacts = () => {
 
     emailjs
       .sendForm(
-        'service_08bxowc',
-        'template_wzku9hr',
+        'service_dl2asq4',
+        'template_vgiml6t',
         e.target,
-        '3SDHZ_wnfkYeO2bfX'
+        'uNOI4ZKdEYiXSQt9Q'
       )
       .then(
         result => {
           setTimeout(() => {
             window.location.reload();
-          }, 5000);
+          }, 3500);
         },
         error => {
           console.log(error.text);
@@ -102,6 +102,7 @@ const Contacts = () => {
                 {email}
               </p>
             </LabelText>
+
             <LabelText>
               <p>Телефон</p>
               <Input

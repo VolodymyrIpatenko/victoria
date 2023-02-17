@@ -66,6 +66,7 @@ const Home = ({ coachData }) => {
             приємним абсолютно для кожного. Основний принцип нашої роботи —
             надання послуг кращої якості при збереженні помірних цін.
           </Description>
+          <Slider />
           <section>
             <Title>Наші тренери</Title>
             <Coaches>
@@ -74,7 +75,6 @@ const Home = ({ coachData }) => {
               })}
             </Coaches>
           </section>
-          <Slider />
         </Main>
       </>
     );

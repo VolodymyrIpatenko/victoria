@@ -58,12 +58,13 @@ const GalleryReact = () => {
           <section>
             <Buttons />
             <ProductsGallery>
-              {items.map(({ image, price }) => {
+              {items.map(({ image, price, description }) => {
                 return (
                   <ProductsGalleryItem key={id}>
                     <img src={image} />
                     <ProductCard>
                       <StyledPrice>{price}</StyledPrice>
+                      <p>{description}</p>
                     </ProductCard>
                   </ProductsGalleryItem>
                 );

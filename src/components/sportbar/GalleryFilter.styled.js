@@ -49,13 +49,16 @@ export const ProductsGallery = styled.ul`
 
 export const StyledPrice = styled.p`
   font-size: 20px;
+  text-align: center;
   color: white;
 `;
 
 export const ProductCard = styled.div`
   display: grid;
   place-content: center;
-  height: 70px;
+  padding: 10px;
+  font-size: 18px;
+  height: 120px;
 `;
 
 export const ProductsGalleryItem = styled.li`
@@ -63,8 +66,13 @@ export const ProductsGalleryItem = styled.li`
   @media screen and (min-width: 1199px) {
     width: 300px;
     border: 1px solid black;
-    background: black;
     border-radius: 5px;
     cursor: pointer;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 52, 0, 1) 0%,
+      rgba(212, 128, 0, 1) 100%,
+      rgba(238, 130, 238, 1) 100%
+    );
   }
 `;

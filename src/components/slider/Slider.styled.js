@@ -3,8 +3,10 @@ import styled from 'styled-components';
 export const Wrraper = styled.section`
   margin-top: 100px;
   width: 400px !important;
-    padding: 30px;
-    background: linear-gradient(
+  padding: 30px;
+  font-size:27px;
+  font-weight:bold;
+  background: linear-gradient(
       90deg,
       rgba(255, 52, 0, 1) 0%,
       rgba(212, 128, 0, 1) 100%,
@@ -12,7 +14,9 @@ export const Wrraper = styled.section`
     );
   }
   @media screen and (min-width: 1199px) {
-    width: 400px !important;
+   
+    width: 1300px !important;
+    height:300px;
     padding: 30px;
     background: linear-gradient(
       90deg,
