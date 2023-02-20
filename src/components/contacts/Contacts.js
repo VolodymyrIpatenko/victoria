@@ -21,7 +21,7 @@ const Contacts = () => {
   const [phone, setPhoneNumber] = useState('');
   const [isModalOpen, setModalOpen] = useToggle(false);
 
-  const values =
+  const isValidValues =
     name === '' ||
     email === '' ||
     phone === '' ||
@@ -32,9 +32,9 @@ const Contacts = () => {
     const email = e.target.value;
 
     if (validator.isEmail(email)) {
-      setEmailError('Valid Email :)');
+      setEmailError('Чудово :)');
     } else {
-      setEmailError('Enter valid Email!');
+      setEmailError('Напишіть правильний email!');
     }
   };
 
@@ -69,78 +69,68 @@ const Contacts = () => {
         }
       );
   }
-
-  const contentProvider = () => {
-    return (
-      <>
-        <FormWrapper>
-          <MyForm onSubmit={sendEmail}>
-            <h1>Напишіть нам</h1>
-            <LabelText>
-              <p>Ім'я</p>
-              <Input
-                type="text"
-                placeholder="Ваше ім'я"
-                onChange={setName}
-                name="name"
-              />
-            </LabelText>
-            <LabelText>
-              <p>Пошта</p>
-              <Input
-                type="email"
-                placeholder="Ваша пошта"
-                onChange={validateEmail}
-                name="email"
-              />
-              <p
-                style={{
-                  fontWeight: 'bold',
-                  color: 'white',
-                }}
-              >
-                {email}
-              </p>
-            </LabelText>
-
-            <LabelText>
-              <p>Телефон</p>
-              <Input
-                type="tel"
-                placeholder="Ваш номер телефону"
-                name="phone"
-                value={phone}
-                maxLength="12"
-                onChange={validatePhoneNumber}
-              />
-            </LabelText>
-            <LabelText>
-              <p>Повідомлення</p>
-              <Textarea
-                placeholder="Напишіть своє повідомлення"
-                onChange={setMessage}
-                name="message"
-              />
-            </LabelText>
-            <ButtonSubmit
-              disabled={values ? true : false}
-              type="submit"
-              onClick={() => setModalOpen.toggle()}
-            >
-              {values ? 'Заповніть поля' : 'Відправити'}
-            </ButtonSubmit>
-            {isModalOpen ? <Modal /> : null}
-          </MyForm>
-        </FormWrapper>
-      </>
-    );
-  };
   return (
-    <>
-      <div className={darkMode ? `Content-dark` : null}>
-        {contentProvider()}
-      </div>
-    </>
+    <div className={darkMode ? `Content-dark` : null}>
+      <FormWrapper>
+        <MyForm onSubmit={sendEmail}>
+          <h1>Напишіть нам</h1>
+          <LabelText>
+            <p>Ім'я</p>
+            <Input
+              type="text"
+              placeholder="Ваше ім'я"
+              onChange={setName}
+              name="name"
+            />
+          </LabelText>
+          <LabelText>
+            <p>Пошта</p>
+            <Input
+              type="email"
+              placeholder="Ваша пошта"
+              onChange={validateEmail}
+              name="email"
+            />
+            <p
+              style={{
+                fontWeight: 'bold',
+                color: 'white',
+              }}
+            >
+              {email}
+            </p>
+          </LabelText>
+
+          <LabelText>
+            <p>Телефон</p>
+            <Input
+              type="tel"
+              placeholder="Ваш номер телефону"
+              name="phone"
+              value={phone}
+              maxLength="12"
+              onChange={validatePhoneNumber}
+            />
+          </LabelText>
+          <LabelText>
+            <p>Повідомлення</p>
+            <Textarea
+              placeholder="Напишіть своє повідомлення"
+              onChange={setMessage}
+              name="message"
+            />
+          </LabelText>
+          <ButtonSubmit
+            disabled={isValidValues ? true : false}
+            type="submit"
+            onClick={() => setModalOpen.toggle()}
+          >
+            {isValidValues ? 'Заповніть поля' : 'Відправити'}
+          </ButtonSubmit>
+          {isModalOpen ? <Modal /> : null}
+        </MyForm>
+      </FormWrapper>
+    </div>
   );
 };
 

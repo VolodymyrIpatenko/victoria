@@ -10,6 +10,9 @@ import { useToggle } from '../customHooks/CustomHooks';
 import { Breakpoint } from 'react-socks';
 import { DarkModeContext } from '../context/DarkModeContext';
 import React, { useContext } from 'react';
+import { nanoid } from 'nanoid';
+
+const id = nanoid();
 
 const titleStyle = {
   marginTop: '50p',
@@ -30,56 +33,41 @@ const Gallery = ({ photoGallery }) => {
   const [row, setToggleDirection] = useToggle(true);
   const { darkMode } = useContext(DarkModeContext);
 
-  const contentProvider = () => {
-    return (
-      <>
-        <Main>
-          <Typed
-            style={titleStyle}
-            strings={['Наші фото']}
-            typeSpeed={100}
-            showCursor={false}
-          />
-          <Breakpoint
-            style={{
-              display: 'flex',
-              gap: '20px',
-              marginLeft: 'auto',
-              fontSize: '30px',
-              cursor: 'pointer',
-            }}
-            xlarge
-            up
-          >
-            <>
-              <DirectionBtn onClick={() => setToggleDirection.toggle()}>
-                <FaExpandArrowsAlt title="Змінити напрям"></FaExpandArrowsAlt>
-              </DirectionBtn>
-            </>
-          </Breakpoint>
-          {row ? (
-            <GalleryListColumn>
-              {photoGallery.map(photo => {
-                return <Photo key={photo.id} photoGallery={photo} />;
-              })}
-            </GalleryListColumn>
-          ) : (
-            <GalleryListRow>
-              {photoGallery.map(photo => {
-                return <Photo key={photo.id} photoGallery={photo} />;
-              })}
-            </GalleryListRow>
-          )}
-        </Main>
-      </>
-    );
-  };
+  const GalleryDirection = row ? GalleryListColumn : GalleryListRow;
+
   return (
-    <>
-      <div className={darkMode ? `Content-dark` : null}>
-        {contentProvider()}
-      </div>
-    </>
+    <div className={darkMode ? `Content-dark` : null}>
+      <Main>
+        <Typed
+          style={titleStyle}
+          strings={['Наші фото']}
+          typeSpeed={100}
+          showCursor={false}
+        />
+        <Breakpoint
+          style={{
+            display: 'flex',
+            gap: '20px',
+            marginLeft: 'auto',
+            fontSize: '30px',
+            cursor: 'pointer',
+          }}
+          xlarge
+          up
+        >
+          <>
+            <DirectionBtn onClick={() => setToggleDirection.toggle()}>
+              <FaExpandArrowsAlt title="Змінити напрям"></FaExpandArrowsAlt>
+            </DirectionBtn>
+          </>
+        </Breakpoint>
+        <GalleryDirection>
+          {photoGallery.map(photo => (
+            <Photo key={id} photoGallery={photo} />
+          ))}
+        </GalleryDirection>
+      </Main>
+    </div>
   );
 };
 

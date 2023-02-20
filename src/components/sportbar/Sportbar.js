@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react';
-import Menu from './data';
 import { nanoid } from 'nanoid';
 import {
   CategoryButton,
@@ -11,12 +10,14 @@ import {
   ProductCard,
 } from './GalleryFilter.styled';
 import { DarkModeContext } from '../context/DarkModeContext';
+import Menu from './data';
+
 const id = nanoid();
 
 const GalleryReact = () => {
   const { darkMode } = useContext(DarkModeContext);
   const [items, setItems] = useState(Menu);
-  const [buttons] = useState([
+  const buttons = [
     'Амінокислоти',
     'Батончики',
     'Гейнер',
@@ -24,63 +25,54 @@ const GalleryReact = () => {
     'Карнітин',
     'Все',
     'Протеїнові коктейлі',
-  ]);
+  ];
 
   const filterItem = categItem => {
     if (categItem === 'Все') {
-      return setItems(Menu);
+      setItems(Menu);
+    } else {
+      const updatedItems = Menu.filter(
+        ({ category }) => category === categItem
+      );
+      setItems(updatedItems);
     }
-    const updatedItems = Menu.filter(({ category }) => {
-      return category === categItem;
-    });
-    setItems(updatedItems);
   };
 
-  const Buttons = () => {
-    return (
-      <ProductsVariety>
-        {buttons.map(button => {
-          return (
-            <li>
-              <CategoryButton onClick={() => filterItem(button)}>
-                {button}
-              </CategoryButton>
-            </li>
-          );
-        })}
-      </ProductsVariety>
-    );
-  };
-  const contentProvider = () => {
-    return (
-      <>
-        <SportbarMain>
-          <section>
-            <Buttons />
-            <ProductsGallery>
-              {items.map(({ image, price, description }) => {
-                return (
-                  <ProductsGalleryItem key={id}>
-                    <img src={image} />
-                    <ProductCard>
-                      <StyledPrice>{price}</StyledPrice>
-                      <p>{description}</p>
-                    </ProductCard>
-                  </ProductsGalleryItem>
-                );
-              })}
-            </ProductsGallery>
-          </section>
-        </SportbarMain>
-      </>
-    );
-  };
+  const Buttons = () => (
+    <ProductsVariety>
+      {buttons.map(button => (
+        <li key={id}>
+          <CategoryButton onClick={() => filterItem(button)}>
+            {button}
+          </CategoryButton>
+        </li>
+      ))}
+    </ProductsVariety>
+  );
+
+  const Products = () => (
+    <ProductsGallery>
+      {items.map(({ image, price, description }) => (
+        <ProductsGalleryItem key={id}>
+          <img src={image} alt={description} />
+          <ProductCard>
+            <StyledPrice>{price}</StyledPrice>
+            <p>{description}</p>
+          </ProductCard>
+        </ProductsGalleryItem>
+      ))}
+    </ProductsGallery>
+  );
+
   return (
-    <>
-      <div className={darkMode ? `Content-dark` : null}>
-        {contentProvider()}
-      </div>
-    </>
+    <div className={darkMode ? 'Content-dark' : null}>
+      <SportbarMain>
+        <section>
+          <Buttons />
+          <Products />
+        </section>
+      </SportbarMain>
+    </div>
   );
 };
 

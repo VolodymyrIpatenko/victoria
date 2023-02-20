@@ -8,7 +8,7 @@ import { Breakpoint } from 'react-socks';
 import SwitchMode from '../SwitchBtn/LightSwitch';
 
 export default function MobileMenuComponent() {
-  const [isOpenMobileMenu, setMobileMenuOpen] = useToggle(false);
+  const [isOpenMobileMenu, setMobileMenuToggle] = useToggle(false);
 
   return (
     <MobileMenu>
@@ -18,7 +18,7 @@ export default function MobileMenuComponent() {
         </a>
 
         <GiHamburgerMenu
-          onClick={() => setMobileMenuOpen.toggle()}
+          onClick={() => setMobileMenuToggle.toggle()}
         ></GiHamburgerMenu>
       </Breakpoint>
       {isOpenMobileMenu ? (
